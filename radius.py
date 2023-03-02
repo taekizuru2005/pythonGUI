@@ -1,0 +1,32 @@
+from tkinter import *
+import tkinter
+
+root = Tk()
+root.title("โปรแกรมคำนวนพื้นที่วงกลม")
+
+#การหาพื้นที่วงกลม
+Label(text="รัศมี",font=30).grid(row=0,sticky=W)    
+radius = IntVar()                                  
+et1=Entry(width=30,textvariable=radius,font=30)          
+et1.grid(row=0,column=1)                                 
+
+
+Label(text="พื้นที่วงกลม",font=30).grid(row=1,sticky=W)
+et2=Entry(width=30,font=30)
+et2.grid(row=1,column=1)
+
+
+def caculate(): #คำนวน
+    et2.delete(0,END)
+    r = radius.get()   
+    area = 3.14*r*r
+    et2.insert(0,area)
+     
+def deletetext():   #ล้างค่าทุกอย่าง
+    et1.delete(0,END)
+    et2.delete(0,END)
+   
+
+btn1=Button(text="คำนวน",command=caculate,background="gold",width=15).grid(row=2,column=1,sticky=W)
+btn1=Button(text="ล้าง",command=deletetext,background="purple",width=15).grid(row=2,column=1,sticky=E)
+root.mainloop()
